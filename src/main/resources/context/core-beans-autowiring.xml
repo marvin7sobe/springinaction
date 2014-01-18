@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="car" class="com.springinaction.corebyxml.autowiring.Car" autowire="byName">
+        <property name="name" value="porche"/>
+    </bean>
+    <bean id="bamper" class="com.springinaction.corebyxml.autowiring.Bamper" primary="false"/>
+
+
+
+    <bean id="car2" class="com.springinaction.corebyxml.autowiring.Car" autowire="byType">
+        <property name="name" value="jaguar"/>
+    </bean>
+    <bean id="bamper2" class="com.springinaction.corebyxml.autowiring.Bamper" primary="true">
+        <property name="color" value="green"/>
+    </bean>
+
+
+
+    <bean id="car3" class="com.springinaction.corebyxml.autowiring.Car" autowire="constructor">
+        <property name="name" value="toyota"/>
+    </bean>
+    <bean id="bamper3" class="com.springinaction.corebyxml.autowiring.Bamper">
+        <property name="color" value="blue"/>
+    </bean>
+
+</beans>
