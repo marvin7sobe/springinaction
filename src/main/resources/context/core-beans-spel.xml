@@ -5,11 +5,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 
-    <bean id="musicion" class="com.springinaction.Musicion" factory-method="newInstance"/>
+    <bean id="musicion" class="com.springinaction.corebyxml.Musicion" factory-method="newInstance"/>
 
-    <bean id="room" class="com.springinaction.Room" init-method="lightTurnOn" destroy-method="lightTurnOff"/>
+    <bean id="room" class="com.springinaction.corebyxml.Room" init-method="lightTurnOn" destroy-method="lightTurnOff"/>
 
-    <bean id="john" class="com.springinaction.Human">
+    <bean id="john" class="com.springinaction.corebyxml.Human">
         <constructor-arg name="name" value="John"/>
         <constructor-arg name="age" value="35"/>
         <property name="wifeOrHusbent" ref="marry"/>
@@ -44,7 +44,7 @@
         </property>
     </bean>
 
-    <bean id="marry" class="com.springinaction.Human" >
+    <bean id="marry" class="com.springinaction.corebyxml.Human" >
         <property name="wifeOrHusbent" value="#{john}"/>
         <property name="relatives" value="#{john.relatives}"/>
         <property name="name" value="#{john.getPersonalId()?.toLowerCase()}"/>
@@ -53,38 +53,38 @@
         <property name="twitter" value="#{settings['twitter.address']}"/>
 
     </bean>
-    <bean id="ted" class="com.springinaction.Human">
+    <bean id="ted" class="com.springinaction.corebyxml.Human">
         <property name="age" value="#{5}"/>
         <property name="name" value="#{'Teddy'}"/>
         <property name="hasDog" value="#{false}"/>
         <property name="cityName" value="#{cities[2].name}"/>
     </bean>
 
-    <bean id="boss" class="com.springinaction.Human"/>
-    <bean id="pm" class="com.springinaction.Human"/>
+    <bean id="boss" class="com.springinaction.corebyxml.Human"/>
+    <bean id="pm" class="com.springinaction.corebyxml.Human"/>
 
 
-    <bean id="bigCities" class="com.springinaction.Territory">
+    <bean id="bigCities" class="com.springinaction.corebyxml.Territory">
         <property name="cities" value="#{cities.?[population gt 1000]}"/>
         <property name="citiesNames" value="#{cities.?[population gt 1000].![name + ', '+ state]}"/>
     </bean>
 
     <util:list id="cities">
-        <bean class="com.springinaction.City"
+        <bean class="com.springinaction.corebyxml.City"
               p:name="Chicago" p:state="IL" p:population="2853114"/>
-        <bean class="com.springinaction.City"
+        <bean class="com.springinaction.corebyxml.City"
               p:name="Atlanta" p:state="GA" p:population="537958"/>
-        <bean class="com.springinaction.City"
+        <bean class="com.springinaction.corebyxml.City"
               p:name="Dallas" p:state="TX" p:population="1279910"/>
-        <bean class="com.springinaction.City"
+        <bean class="com.springinaction.corebyxml.City"
               p:name="Houston" p:state="TX" p:population="2242193"/>
-        <bean class="com.springinaction.City"
+        <bean class="com.springinaction.corebyxml.City"
               p:name="Odessa" p:state="TX" p:population="90943"/>
-        <bean class="com.springinaction.City"
+        <bean class="com.springinaction.corebyxml.City"
               p:name="El Paso" p:state="TX" p:population="613190"/>
-        <bean class="com.springinaction.City"
+        <bean class="com.springinaction.corebyxml.City"
               p:name="Jal" p:state="NM" p:population="1996"/>
-        <bean class="com.springinaction.City"
+        <bean class="com.springinaction.corebyxml.City"
               p:name="Las Cruces" p:state="NM" p:population="91865"/>
     </util:list>
 

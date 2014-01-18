@@ -1,4 +1,4 @@
-package com.springinaction;
+package com.springinaction.corebyxml;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.springinaction;
+package com.springinaction.corebyxml;
 
 
 public class Room {
