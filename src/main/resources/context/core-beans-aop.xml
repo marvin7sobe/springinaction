@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="performer" class="com.springinaction.corebyxml.aop.Performer"/>
+    <bean id="performExecutor" class="com.springinaction.corebyxml.aop.PerformExecutor" init-method="makeConcert">
+        <property name="performer" ref="performer"/>
+    </bean>
+
+    <bean id="audience" class="com.springinaction.corebyxml.aop.Audience"/>
+    <aop:config>
+        <aop:aspect ref="audience">
+            <!--executed before performing-->
+            <aop:before pointcut="execution(* com.springinaction.corebyxml.aop.Performer.perform())" method="takeSeats"/>
+            <aop:before pointcut="execution(* com.springinaction.corebyxml.aop.Performer.perform())" method="turnOffCellPhones"/>
+            <!--executed if perform did not throw exeption-->
+            <aop:after-returning pointcut="execution(* com.springinaction.corebyxml.aop.Performer.perform())" method="applaud"/>
+            <!--executed if perform throwed exceptoin-->
+            <aop:after-throwing pointcut="execution(* com.springinaction.corebyxml.aop.Performer.perform())" method="demandRefund"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
