@@ -1,7 +1,7 @@
-package com.springinaction.autowiring;
+package com.springinaction.anotated;
 
-import com.springinaction.autowiring.components.HardDrive;
-import com.springinaction.autowiring.components.SamsungHardDrive;
+import com.springinaction.anotated.components.HardDrive;
+import com.springinaction.anotated.components.SamsungHardDrive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

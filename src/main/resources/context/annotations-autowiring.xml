@@ -11,7 +11,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     <!--because component-scan does the same + created beans from specified packages-->
     <!--<context:annotation-config />-->
 
-    <context:component-scan base-package="com.springinaction.autowiring"/>
+    <context:component-scan base-package="com.springinaction.anotated"/>
 
 
 </beans>

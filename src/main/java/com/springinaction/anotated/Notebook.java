@@ -1,6 +1,6 @@
-package com.springinaction.autowiring;
+package com.springinaction.anotated;
 
-import com.springinaction.autowiring.components.HardDrive;
+import com.springinaction.anotated.components.HardDrive;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;

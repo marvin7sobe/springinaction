@@ -1,4 +1,4 @@
-package com.springinaction.autowiring.components;
+package com.springinaction.anotated.components;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

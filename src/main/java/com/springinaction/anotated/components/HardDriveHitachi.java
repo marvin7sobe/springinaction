@@ -1,4 +1,4 @@
-package com.springinaction.autowiring.components;
+package com.springinaction.anotated.components;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
