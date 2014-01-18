@@ -9,7 +9,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 
     <context:annotation-config />
-    <!-- bean declarations go here -->
+    <context:component-scan base-package="com.springinaction.autowiring"/>
 
-    
+
 </beans>
