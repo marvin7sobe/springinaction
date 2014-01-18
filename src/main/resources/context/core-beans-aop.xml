@@ -11,14 +11,15 @@
 
     <bean id="audience" class="com.springinaction.corebyxml.aop.Audience"/>
     <aop:config>
+        <aop:pointcut id="perform" expression="execution(* com.springinaction.corebyxml.aop.Performer.perform())"/>
         <aop:aspect ref="audience">
             <!--executed before performing-->
             <aop:before pointcut="execution(* com.springinaction.corebyxml.aop.Performer.perform())" method="takeSeats"/>
-            <aop:before pointcut="execution(* com.springinaction.corebyxml.aop.Performer.perform())" method="turnOffCellPhones"/>
+            <aop:before pointcut-ref="perform" method="turnOffCellPhones"/>
             <!--executed if perform did not throw exeption-->
-            <aop:after-returning pointcut="execution(* com.springinaction.corebyxml.aop.Performer.perform())" method="applaud"/>
+            <aop:after-returning pointcut-ref="perform" method="applaud"/>
             <!--executed if perform throwed exceptoin-->
-            <aop:after-throwing pointcut="execution(* com.springinaction.corebyxml.aop.Performer.perform())" method="demandRefund"/>
+            <aop:after-throwing pointcut-ref="perform" method="demandRefund"/>
         </aop:aspect>
     </aop:config>
 
