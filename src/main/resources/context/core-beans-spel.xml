@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <bean id="musicion" class="com.springinaction.Musicion" factory-method="newInstance"/>
+
+    <bean id="room" class="com.springinaction.Room" init-method="lightTurnOn" destroy-method="lightTurnOff"/>
+
+    <bean id="john" class="com.springinaction.Human">
+        <constructor-arg name="name" value="John"/>
+        <constructor-arg name="age" value="35"/>
+        <property name="wifeOrHusbent" ref="marry"/>
+        <property name="relatives">
+            <list>
+                <ref bean="pm"/>
+                <ref bean="ted"/>
+                <ref bean="ted"/>
+            </list>
+        </property>
+        <property name="favouriteWords">
+            <set>
+                <value>wazzap</value>
+                <value>tu-tu</value>
+                <value>mur</value>
+                <value>home</value>
+                <value>home</value>
+                <value>home</value>
+            </set>
+        </property>
+        <property name="cars">
+            <props>
+                <prop key="porche">blue</prop>
+                <prop key="yaguar">red</prop>
+            </props>
+        </property>
+        <property name="collegues">
+            <map>
+                <entry key="boss" value-ref="boss"></entry>
+                <entry key="pm" value-ref="pm"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="marry" class="com.springinaction.Human" >
+        <property name="wifeOrHusbent" value="#{john}"/>
+        <property name="relatives" value="#{john.relatives}"/>
+        <property name="name" value="#{john.getPersonalId()?.toLowerCase()}"/>
+        <property name="age" value="#{john.age-3}"/>
+        <property name="cityName" value="#{cities[T(java.lang.Math).random() * cities.size()].name}"/>
+        <property name="twitter" value="#{settings['twitter.address']}"/>
+
+    </bean>
+    <bean id="ted" class="com.springinaction.Human">
+        <property name="age" value="#{5}"/>
+        <property name="name" value="#{'Teddy'}"/>
+        <property name="hasDog" value="#{false}"/>
+        <property name="cityName" value="#{cities[2].name}"/>
+    </bean>
+
+    <bean id="boss" class="com.springinaction.Human"/>
+    <bean id="pm" class="com.springinaction.Human"/>
+
+
+    <bean id="bigCities" class="com.springinaction.Territory">
+        <property name="cities" value="#{cities.?[population gt 1000]}"/>
+        <property name="citiesNames" value="#{cities.?[population gt 1000].![name + ', '+ state]}"/>
+    </bean>
+
+    <util:list id="cities">
+        <bean class="com.springinaction.City"
+              p:name="Chicago" p:state="IL" p:population="2853114"/>
+        <bean class="com.springinaction.City"
+              p:name="Atlanta" p:state="GA" p:population="537958"/>
+        <bean class="com.springinaction.City"
+              p:name="Dallas" p:state="TX" p:population="1279910"/>
+        <bean class="com.springinaction.City"
+              p:name="Houston" p:state="TX" p:population="2242193"/>
+        <bean class="com.springinaction.City"
+              p:name="Odessa" p:state="TX" p:population="90943"/>
+        <bean class="com.springinaction.City"
+              p:name="El Paso" p:state="TX" p:population="613190"/>
+        <bean class="com.springinaction.City"
+              p:name="Jal" p:state="NM" p:population="1996"/>
+        <bean class="com.springinaction.City"
+              p:name="Las Cruces" p:state="NM" p:population="91865"/>
+    </util:list>
+
+
+    <util:properties id="settings" location="classpath:propetries.properties"/>
+
+
+
+</beans>
