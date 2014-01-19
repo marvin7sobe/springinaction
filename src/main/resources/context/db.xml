@@ -35,4 +35,13 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="emf" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="spitterPU" />
+    </bean>
+    <!--to be able inject EntityManagerFactory using annotation-->
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+    <!--<bean id="jpaTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
+    <!--<property name="entityManagerFactory" ref="emf"/>-->
+    <!--</bean>-->
+
 </beans>

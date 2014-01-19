@@ -15,11 +15,20 @@ public class SpitterService {
     @Qualifier("hibernate-spitter-dao")
     private SpitterDao hibernateSpitterDAO;
 
+    @Autowired
+    @Qualifier("jpa-spitter-dao")
+    private SpitterDao jpaSpitterDao;
+
     @PostConstruct
     public void initSpitter(){
 //        inserting data using hibernate
         Spitter spitter = new Spitter();
         spitter.setName("my spitter");
         hibernateSpitterDAO.addSpitter(spitter);
+
+//        insertinv data using JPA
+        Spitter spitter2 = new Spitter();
+        spitter.setName("my spitter2");
+        jpaSpitterDao.addSpitter(spitter2);
     }
 }
