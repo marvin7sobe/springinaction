@@ -7,5 +7,6 @@
     <import resource="xml-core-beans-and-spel.xml"/>
     <import resource="xml-autowiring.xml"/>
     <import resource="xml-aop.xml"/>
+    <import resource="db.xml"/>
 
 </beans>
