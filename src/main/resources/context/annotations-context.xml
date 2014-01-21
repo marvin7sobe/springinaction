@@ -12,7 +12,9 @@
     <!--because component-scan does the same + created beans from specified packages-->
     <!--<context:annotation-config />-->
 
-    <context:component-scan base-package="com.springinaction.anotated"/>
+    <context:component-scan base-package="com.springinaction.anotated">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <!--enables Aspectj annotations. Without that @Aspect annotation does not work-->
     <aop:aspectj-autoproxy/>

@@ -7,9 +7,9 @@
 <body>
 <p>Loading ...</p>
 
-<%--<script type="text/javascript">--%>
-    <%--location.href='/springinaction/home.do';--%>
-<%--</script>--%>
+<script type="text/javascript">
+    location.href='/springinaction/home';
+</script>
 
 </body>
 </html>
