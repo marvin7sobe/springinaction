@@ -23,7 +23,7 @@ public class HibernateSpitterDaoImpl implements SpitterDao {
         currentSession().save(spitter);
     }
 
-    public Spitter getSpitterById(long id) {
+    public Spitter getSpitterById(Long id) {
         return (Spitter) currentSession().get(Spitter.class, id);
     }
 

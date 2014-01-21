@@ -6,7 +6,7 @@ public interface SpitterDao {
 
     public void addSpitter(Spitter spitter);
 
-    public Spitter getSpitterById(long id);
+    public Spitter getSpitterById(Long id);
 
     public void saveSpitter(Spitter spitter);
 }

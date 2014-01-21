@@ -19,7 +19,7 @@ public class JpaSpitterDaoImpl implements SpitterDao {
         em.persist(spitter);
     }
 
-    public Spitter getSpitterById(long id) {
+    public Spitter getSpitterById(Long id) {
         return em.find(Spitter.class, id);
     }
 
