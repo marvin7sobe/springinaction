@@ -25,18 +25,22 @@ public class SpitterService {
     public void initSpitter(){
 //        inserting data using hibernate
         Spitter spitter = new Spitter();
-        spitter.setId(1L);
         spitter.setName("my spitter");
+        spitter.setUsername("my");
         hibernateSpitterDAO.addSpitter(spitter);
 
 //        insertinv data using JPA
-        Spitter spitter2 = new Spitter();
-        spitter.setId(2L);
-        spitter.setName("my spitter2");
-        jpaSpitterDao.addSpitter(spitter2);
+//        Spitter spitter2 = new Spitter();
+//        spitter.setId(2L);
+//        spitter.setName("my spitter2");
+//        jpaSpitterDao.addSpitter(spitter2);
     }
 
     public List<Spitter> getRecentSpittles(int size){
-        return Arrays.asList(hibernateSpitterDAO.getSpitterById(1L),jpaSpitterDao.getSpitterById(2L));
+        return hibernateSpitterDAO.getSpitters();
+    }
+
+    public void saveSpitter(Spitter spitter){
+        hibernateSpitterDAO.saveSpitter(spitter);
     }
 }

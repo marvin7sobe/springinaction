@@ -8,7 +8,8 @@
         inner-most and personal thoughts on the web for everyone else to
         see.</h2>
     <h3>Look at what these people are spitting right now...</h3>
-    <ol class="spittle-list">
+
+    <a href="<c:url value="/spitter?new"/>">Add new spitter</a>
         <c:forEach var="spittle" items="${spitters}">
             <%--<s:url value="/spitters/{spitterName}" var="spitter_url">--%>
                 <%--<s:param name="spitterName" value="${spittle.spitter.username}"/>--%>
@@ -24,9 +25,8 @@
                     <%--- <c:out value="${spittle.text}"/><br/>--%>
                 <%--<small><fmt:formatDate value="${spittle.when}" pattern="hh:mma MMM d, yyyy"/></small>--%>
                 <%--</span>--%>
-                    ${spittle.name}
+                    ${spittle.id} - ${spittle.name}
             </li>
         </c:forEach>
-    </ol>
 </div>
 </body>

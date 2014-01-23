@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Collections;
+import java.util.List;
 
 @Repository("jpa-spitter-dao")
 @Transactional
@@ -21,6 +23,12 @@ public class JpaSpitterDaoImpl implements SpitterDao {
 
     public Spitter getSpitterById(Long id) {
         return em.find(Spitter.class, id);
+    }
+
+    @Override
+    public List<Spitter> getSpitters() {
+//        stub for now
+        return Collections.emptyList();
     }
 
     public void saveSpitter(Spitter spitter) {
